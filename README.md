@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# 프로젝트 실행방법
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+git clone 레파지토리
+yarn install
+yarn start
 
-## Available Scripts
+## preonboarding프로젝트 실행 설명
 
-In the project directory, you can run:
+1.로그인 기능
+-> 처음 보이는 화면이 로그인
+(\*로그인이 되어있는경우(localStorage에 토큰이 있는경우) TodoList로 넘어감)
 
-### `npm start`
+아이디가 없을경우
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2.회원가입 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+로그인 아래에 제공된 회원가입을 클릭하여 이동
+->이메일 형식("@")과 비밀번호 (8글자 이상)일 경우에만 버튼 활성화
 
-### `npm test`
+(\*회원가입에 성공하면 토큰값을 받아와 todoList로 이동)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3.CreateTodo
 
-### `npm run build`
+로그인 이후 TodoList페이지로 이동함
+이후 위에 있는 input창을 사용하여서 할일 목록을 추가 가능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4.FetchTodo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+CreateTodo에서 생성한 할일 목록이 새로고침후에 반영되어 보이게 됨
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5.DeleteTodo
 
-### `npm run eject`
+할일 목록을 추가한 이후 삭제를 할수있음
+오른쪽에 있는 삭제버튼을 클릭하면 삭제 가능
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6.UpdateTodo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+삭제버튼의 왼쪽에 있는 수정버튼을 누르면 새로운 input창이 열리고
+이를 통하여 작성한 내용이 반영됨
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. isCompleted
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+완료하기를 누르면 할일을 끝마쳤다는 의미로 새로고침후에 완료로 반영되어 보이게 됨
+되돌리기를 누르면 할일을 마치지 않았다는 의미로 새로고침 후에 미완료로 반영되어 보이게 됨
 
-## Learn More
+# 배포링크
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://frabjous-parfait-d2b066.netlify.app/
