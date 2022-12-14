@@ -6,7 +6,9 @@ export default function TodoListPresenter(props) {
       <li style={{ marginBottom: '10px' }}>
         {!props.open ? (
           <>
-            <input type='checkbox' />
+            <Edit id={props.el.id} onClick={props.onClickComplete}>
+              {!props.el.isCompleted ? '완료하기' : '되돌리기'}
+            </Edit>
             <strong style={{ marginRight: '20px' }}>
               {props.el.isCompleted ? '완료' : '미완료'}
             </strong>
@@ -29,9 +31,14 @@ export default function TodoListPresenter(props) {
           </>
         )}
         {!props.open && (
-          <Edit id={props.el.id} onClick={props.onClickOpen}>
-            수정
-          </Edit>
+          <>
+            <Edit id={props.el.id} onClick={props.onClickOpen}>
+              수정
+            </Edit>
+            <Edit id={props.el.id} onClick={props.onClickDel}>
+              삭제
+            </Edit>
+          </>
         )}
       </li>
     </>

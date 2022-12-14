@@ -17,6 +17,12 @@ export default function TodoListContainer(props) {
   };
 
   const onClickUpdate = async (event) => {
+    let state = null;
+    props.data.forEach((el) => {
+      if (String(el.id) === String(event.target.id)) {
+        state = props.el.isCompleted;
+      }
+    });
     try {
       await axios.request({
         url: `https://pre-onboarding-selection-task.shop/todos/${event.target.id}`,
@@ -27,7 +33,7 @@ export default function TodoListContainer(props) {
         },
         data: {
           todo: props.todo,
-          isCompleted: props.el.isCompleted,
+          isCompleted: state,
         },
       });
       props.isEdit(false);
@@ -35,6 +41,44 @@ export default function TodoListContainer(props) {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const onClickComplete = async (event) => {
+    let todo = null;
+    props.data.forEach((el) => {
+      if (String(el.id) === String(event.target.id)) {
+        todo = props.el.todo;
+      }
+    });
+
+    try {
+      await axios.request({
+        url: `https://pre-onboarding-selection-task.shop/todos/${event.target.id}`,
+        method: 'put',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json',
+        },
+        data: {
+          todo: todo,
+          isCompleted: event.target.innerText === '완료하기' ? true : false,
+        },
+      });
+      props.isEdit(false);
+      setOpen(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onClickDel = (event) => {
+    axios.request({
+      url: `https://pre-onboarding-selection-task.shop/todos/${event.target.id}`,
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
   };
   return (
     <TodoListPresenter
@@ -44,6 +88,8 @@ export default function TodoListContainer(props) {
       open={open}
       onClickClose={onClickClose}
       onChangeTodo={onChangeTodo}
+      onClickComplete={onClickComplete}
+      onClickDel={onClickDel}
     />
   );
 }

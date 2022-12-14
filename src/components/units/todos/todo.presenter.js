@@ -19,6 +19,7 @@ export default function TodoPresenter(props) {
               el={el}
               todo={props.todo}
               isEdit={true}
+              data={props.data}
             />
           ))}
         </ul>

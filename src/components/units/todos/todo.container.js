@@ -24,7 +24,5 @@ export default function TodoContainer() {
       });
   }, []);
 
-  console.log(data);
-
   return <TodoPresenter data={data} setTodo={setTodo} todo={todo} />;
 }
